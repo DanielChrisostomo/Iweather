@@ -18,4 +18,22 @@ describe("Component: SelectList", () => {
 
         const selectedCity = screen.getByText("Campinas")
     })
+
+    it("Should not be returned city details selected.", () => {
+        const data = [
+            { id: '1', name: 'Campinas', latitude: 123, longitude: 456 },
+            { id: '2', name: 'Campo grande', latitude: 124, longitude: 456 }
+        ]
+
+        render( 
+        <SelectList 
+            data={data}  
+            onChange={() => {}}
+            onPress={() => {}}
+            />
+        )
+
+        const selectedCity = screen.queryByText("Florianópolis")
+        expect(selectedCity).toBeFalsy()
+    })
 })
