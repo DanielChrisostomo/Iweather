@@ -97,4 +97,17 @@ describe("Component: SelectList", () => {
 
         expect(onPress).toBeCalledWith(data[1])
     })
+
+    it("Should not be returned the component with children", () => {
+        render(
+        <SelectList
+            data={[]}
+            onChange={() => {}}
+            onPress={() => {}}
+             />
+            )
+
+            const options = screen.getByTestId("options")
+            expect(options.children).toHaveLength(0)
+    })
 })
