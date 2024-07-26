@@ -6,7 +6,6 @@ import { CityProvider } from './CityContext'
 describe('Context: cityContext', () => {
   it('should be changed selected city', async () => {
     const { result } = renderHook(() => useCity(), { wrapper: CityProvider })
-    console.log(result.current)
 
     await waitFor(() => act(() => result.current.handleChanceCity({
       id: '1',

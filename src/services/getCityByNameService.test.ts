@@ -8,7 +8,6 @@ describe("Service: getCityByNameService", () => {
     jest.spyOn(api, "get").mockResolvedValue({ data: mockCityAPIResponse })
 
     const response = await getCityByNameService('São Paulo')
-    console.log(response)
 
     expect(response.length).toBeGreaterThan(0)
   })
