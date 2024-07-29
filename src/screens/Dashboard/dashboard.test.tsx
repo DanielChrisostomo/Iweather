@@ -23,7 +23,7 @@ describe("Screen: Dashboard", () => {
 
     render(<Dashboard />)
 
-    const cityName = await waitFor(() => screen.findByText(/rio do sul/i));
+    const cityName = await waitFor(() => expect(screen.findByText(/rio do sul/i, {}, { timeout: 3000 })).toBeTruthy);
     expect(cityName).toBeTruthy() 
   })
 
@@ -51,6 +51,6 @@ describe("Screen: Dashboard", () => {
         
         expect(screen.getByText(cityName, { exact: false })).toBeTruthy()
         
-        debug()
+        // debug()
   })
 })
